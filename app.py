@@ -19,7 +19,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from steam_parser import SteamParser
 from analytics import enrich_games, rank_publishers, find_notable_promotions, generate_summary
 from flask import Flask
-
+from parser.steam_parser import SteamParser
 app = Flask(__name__)
 
 @app.route("/")
