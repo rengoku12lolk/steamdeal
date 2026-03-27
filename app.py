@@ -18,7 +18,17 @@ from apscheduler.schedulers.background import BackgroundScheduler
 # ── import our existing modules ───────────────────────────────────────────────
 from steam_parser import SteamParser
 from analytics import enrich_games, rank_publishers, find_notable_promotions, generate_summary
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello"
+
+@app.route("/api/status")
+def status():
+    return {"status": "ok"}
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s [%(levelname)s] %(name)s — %(message)s")
 log = logging.getLogger("steamdeal")
